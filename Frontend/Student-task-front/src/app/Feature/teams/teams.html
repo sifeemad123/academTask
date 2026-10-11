@@ -1,0 +1,23 @@
+
+<main>
+  <div class="Profile">
+    <h1>Team mangment</h1>
+
+    <a routerLink="/TeacherCreate">Create Teacher</a>
+    <a routerLink="/StudentsComponent">Create Student</a>
+  </div>
+
+  <div class="Form">
+    <div class="name">
+      <input
+        type="text"
+        placeholder="First name"
+        [(ngModel)]="teamData.name"
+      />
+    </div>
+
+    <button type="button" (click)="CreateTeam()">
+      Create Team
+    </button>
+  </div>
+</main>

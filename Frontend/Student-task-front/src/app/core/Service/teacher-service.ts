@@ -21,8 +21,4 @@ export class TeacherService {
     return this.http.post<TeacherResponse>(this.baseUrl, data);
   }
 
-  updateTeacher(id: number, data: any) {
-    return this.http.put<TeacherResponse>(`${this.baseUrl}/${id}`, data);
-  }
-
 }
