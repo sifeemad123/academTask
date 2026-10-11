@@ -1,7 +1,7 @@
 
 <main>
   <div class="Profile">
-    <h1>Team mangment</h1>
+    <h1>Team mangm</h1>
 
     <a routerLink="/TeacherCreate">Create Teacher</a>
     <a routerLink="/StudentsComponent">Create Student</a>
@@ -19,5 +19,25 @@
     <button type="button" (click)="CreateTeam()">
       Create Team
     </button>
+  </div>
+
+  <div class="data">
+    @for (team of Teams; track team.id) {
+      <div class="team">
+        <span class="id">{{ team.id }}</span>
+
+        <div class="info">
+          <span class="full-name">
+            {{ team.name }}
+          </span>
+        </div>
+      </div>
+    <button
+      type="button"
+      (click)="deleteTeam(teamData.id)"
+    >
+      Delete
+    </button>
+    }
   </div>
 </main>
