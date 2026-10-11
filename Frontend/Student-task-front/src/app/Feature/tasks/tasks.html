@@ -1,0 +1,75 @@
+
+<main>
+  <div class="Profile">
+    <h1>Tasks Management</h1>
+
+    <a routerLink="/TeacherCreate">Create Teacher</a>
+    <a routerLink="/Teams">Create Team</a>
+       <a routerLink="/StudentsComponent">Create Student</a>
+  </div>
+
+  <div class="Form">
+    <div class="name">
+      <input
+        type="text"
+        placeholder="name"
+        [(ngModel)]="taskData.name"
+      />
+
+      <input
+        type="text"
+        placeholder="Deskreption"
+        [(ngModel)]="taskData.task"
+      />
+    </div>
+
+    <div class="authorization">
+      <input
+        type="email"
+        placeholder="Student"
+        [(ngModel)]="taskData.task"
+      />
+
+      <input
+        type="password"
+        placeholder="Tacher"
+        [(ngModel)]="taskData.task"
+      />
+    </div>
+
+    <button
+      type="button"
+      (click)="CreateStudent()"
+      [disabled]="loading"
+    >
+      {{ loading ? 'Please wait...' : 'Create Student' }}
+    </button>
+  </div>
+
+  <div class="data">
+    @for (student of Students; track student.id) {
+      <div class="student">
+        <span class="id">{{ student.id }}</span>
+
+        <div class="info">
+          <span class="full-name">
+            {{ student.firstName }} {{ student.lastName }}
+          </span>
+
+          <span class="email">
+            {{ student.email }}
+          </span>
+        </div>
+
+        <button
+          type="button"
+          (click)="deleteStudent(student.id)"
+        >
+          Delete
+        </button>
+      </div>
+    } @empty {
+      <p>No students found.</p>
+    }
+  </div>
+</main>
