@@ -47,29 +47,29 @@
   </div>
 
   <div class="data">
-    @for (student of Students; track student.id) {
+    @for (Task of Tasks; track Task.id) {
       <div class="student">
-        <span class="id">{{ student.id }}</span>
+        <span class="id">{{ Task.id }}</span>
 
         <div class="info">
           <span class="full-name">
-            {{ student.firstName }} {{ student.lastName }}
+            {{ Task.firstName }} 
           </span>
 
           <span class="email">
-            {{ student.email }}
+            {{ Task.task }}
           </span>
         </div>
 
         <button
           type="button"
-          (click)="deleteStudent(student.id)"
+          (click)="deleteStudent(Task.id)"
         >
           Delete
         </button>
       </div>
     } @empty {
-      <p>No students found.</p>
+      <p>No Task found.</p>
     }
   </div>
 </main>
