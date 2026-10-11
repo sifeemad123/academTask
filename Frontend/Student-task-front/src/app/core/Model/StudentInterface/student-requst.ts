@@ -3,4 +3,5 @@ export interface StudentRequst {
     lastName: String;
     email: String;
     password: String;
+    grade: String;
 }
