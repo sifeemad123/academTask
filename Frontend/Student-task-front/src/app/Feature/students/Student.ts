@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { StudentService } from '../../core/Service/student-service';
@@ -15,13 +15,14 @@ export class StudentsComponent implements OnInit {
 
   private service = inject(StudentService);
 
-  Students: StudentResponse[] = [];
+  Students = signal<StudentResponse[]>([]);
 
   public studentData = {
     firstName: '',
     lastName: '',
     email: '',
     password: '',
+    grade:'',
   };
 
   loading = false;
@@ -58,7 +59,7 @@ export class StudentsComponent implements OnInit {
 
     this.service.loadStudents().subscribe({
       next: (data) => {
-        this.Students = data;
+        this.Students.set(data);
       },
 
       error: (err) => {

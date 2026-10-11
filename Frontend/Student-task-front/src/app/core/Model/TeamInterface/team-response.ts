@@ -1,5 +1,4 @@
 export interface TeamResponse {
-    id: String;
+    id: number;
     name: String;
-    students: String[];
 }

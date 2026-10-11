@@ -1,6 +1,7 @@
 export interface TeacherModel {
-    firstName: String;
-    lastName: String;
-    email: String;
-    phone: String;
+    firstName: string;
+    lastName: string;
+    password: string;
+    email: string;
+    phone: string;
 }

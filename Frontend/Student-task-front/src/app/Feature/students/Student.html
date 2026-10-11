@@ -3,12 +3,19 @@
     <h1>Student Management</h1>
     <a routerLink="/profile">Profile</a>
     <a routerLink="/TeacherCreate">Create Teacher</a>
+    <a routerLink="/CreateSession">Create Session</a>
 
   </div>
   <div class="Form">
     <div class="name">
       <input type="name" placeholder="First name" [(ngModel)]="studentData.firstName" />
       <input type="name" placeholder="last name" [(ngModel)]="studentData.lastName" />
+      <select name="isActive"  [(ngModel)]="studentData.grade">
+        <option value="grade10">grade10</option>
+        <option value="grade11">grade11</option>
+        <option value="grade12">grade12</option>
+      </select>
+
     </div>
     <div class="authrization">
       <input type="email" placeholder="First email" [(ngModel)]="studentData.email" />
@@ -19,7 +26,7 @@
   </div>
 
 <div class="data">
-  @for (student of Students; track student.id) {
+  @for (student of Students(); track student.id) {
     <div class="student">
       <span class="id">{{ student.id }}</span>
       <div class="info">

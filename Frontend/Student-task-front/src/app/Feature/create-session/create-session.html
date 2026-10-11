@@ -1,0 +1,65 @@
+<main>
+  <div class="Profile">
+    <h1>Session Management</h1>
+    <a></a>
+  </div>
+
+  <div class="Form">
+    <div class="inputs">
+      <div>
+        <label for="StartSession">StartDate</label>
+        <input
+          type="date"
+          name="StartSession"
+          placeholder="StartSession"
+          [(ngModel)]="sessionData.startDate"
+          [min]="today"
+          required
+        />
+      </div>
+
+      <div>
+        <label for="EndSession">EndDate</label>
+        <input
+          type="date"
+          name="EndSession"
+          placeholder="EndSession"
+          [(ngModel)]="sessionData.endDate"
+          [min]="sessionData.startDate || today"
+          required
+        />
+      </div>
+
+      <select name="isActive" [(ngModel)]="sessionData.isActive">
+        <option value="Start">Start</option>
+        <option value="end">end</option>
+        <option value="inSession">inSession</option>
+      </select>
+<select
+  id="teams"
+  name="teams"
+  [(ngModel)]="sessionData.teams"
+  multiple
+>
+  @for (team of Teams; track team.id) {
+    <option [ngValue]="team">
+      {{ team.name }}
+    </option>
+  }
+</select>    </div>
+    <button (click)="CreateSession()">create Session</button>
+  </div>
+  <div class="data">
+    @for (session of Sessions(); track session.id) {
+      <div class="teacher">
+        <span class="id">{{ session.id }}</span>
+        <div class="info">
+          <span class="StartDate">{{ session.startDate }}</span>
+          <span class="EndDate">{{ session.endDate }}</span>
+          <span class="Teams">{{ session.teams }}</span>
+        </div>
+        <button (click)="deleteSession(session.id)">delete</button>
+      </div>
+    }
+  </div>
+</main>

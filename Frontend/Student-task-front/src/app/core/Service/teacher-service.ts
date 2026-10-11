@@ -6,7 +6,7 @@ import { TeacherResponse } from '../Model/teacherInterface/teacherResponse';
   providedIn: 'root'
 })
 export class TeacherService {
-  private baseUrl = 'http://localhost:8081/API/V1/Teachers';
+  private baseUrl = 'http://localhost:8081/API/V1/Teacher';
   private http = inject(HttpClient);
 
   loadTeachers() {
@@ -21,8 +21,6 @@ export class TeacherService {
     return this.http.post<TeacherResponse>(this.baseUrl, data);
   }
 
-  updateTeacher(id: number, data: any) {
-    return this.http.put<TeacherResponse>(`${this.baseUrl}/${id}`, data);
-  }
+
 
 }

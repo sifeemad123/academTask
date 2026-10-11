@@ -2,9 +2,9 @@ spring:
   application:
     name: TODO
   datasource:
-    url: jdbc:oracle:thin:@localhost:1521/orcl
-    username: youssef
-    password: password12345
+    url: jdbc:oracle:thin:@localhost:1521/ORCL20
+    username: C##WEB_USER
+    password: Password123
   jpa:
     hibernate:
 #            ddl-auto:?update

@@ -1,7 +1,8 @@
 export interface TeacherResponse {
     id: number;
     firstName: string;
-    lastName: string;
+    lastName: String;
     email: string;
+    password: string;
     phone: string;
 }

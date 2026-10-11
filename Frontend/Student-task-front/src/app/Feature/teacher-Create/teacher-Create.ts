@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { TeacherService } from '../../core/Service/teacher-service';
 import { TeacherResponse } from '../../core/Model/teacherInterface/teacherResponse';
@@ -13,11 +13,12 @@ import { RouterLink } from '@angular/router';
 export class TeacherProfile implements OnInit {
   private service = inject(TeacherService);
 
-  Teachers: TeacherResponse[] = [];
+  Teachers = signal<TeacherResponse[]>([]);
 
   public teacherData = {
     firstName: '',
     lastName: '',
+    password:'',
     email: '',
     phone: '',
   };
@@ -56,7 +57,7 @@ export class TeacherProfile implements OnInit {
 
     this.service.loadTeachers().subscribe({
       next: (data) => {
-        this.Teachers = data;
+        this.Teachers.set(data);
       },
 
       error: (err) => {

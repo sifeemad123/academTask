@@ -1,7 +1,6 @@
 <main>
     <div class="Profile">
     <h1>Teacher Management</h1>
-    <a routerLink="/profile">Profile</a>
     <a routerLink="/StudentsComponent">Create Student</a>
 
   </div>
@@ -9,17 +8,18 @@
     <div class="name">
       <input type="name" placeholder="First name" [(ngModel)]="teacherData.firstName" />
       <input type="name" placeholder="last name" [(ngModel)]="teacherData.lastName" />
+      <input type="password" placeholder="password" [(ngModel)]="teacherData.password"  >
       <input type="email" placeholder="Email" [(ngModel)]="teacherData.email" />
       <input type="phone" placeholder="Phone" [(ngModel)]="teacherData.phone" />
     </div>
 
     <button (click)="CreateTeacher()">create teacher</button>
   </div>
-  
+
 
 
   <div class="data">
-    @for (teacher of Teachers; track teacher.id) {
+    @for (teacher of Teachers(); track teacher.id) {
       <div class="teacher">
         <span class="id">{{ teacher.id }}</span>
         <div class="info">

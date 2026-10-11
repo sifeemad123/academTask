@@ -1,79 +1,227 @@
-:host {
-  display: block;
-  min-height: 100vh;
-  background: #f3f5f8;
-  color: #1c2430;
-  font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
-}
-
+/* Main Page */
 main {
-  max-width: 760px;
-  margin: 0 auto;
-  padding: 2.5rem 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-.Form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  padding: 1.5rem;
-  background: #ffffff;
-  border: 1px solid #d5dbe4;
-  border-radius: 10px;
-  padding-bottom: 2rem;
-}
-.name {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-}
-button {
-  font: inherit;
-  font-weight: 600;
-  cursor: pointer;
-  border: none;
-  border-radius: 6px;
-  padding: 0.7rem 1.2rem;
-  color: #fff;
-  background: #1f5eff;
-  transition: background-color 0.15s;
-}
-
-button:hover {
-  background: #1749c9;
-}
-
-input {
-  width: 100%;
+  min-height: 100vh;
+  padding: 40px;
+  background: #f5f6fa;
+  font-family: Arial, sans-serif;
+  color: #252525;
   box-sizing: border-box;
-  padding: 0.7rem 0.85rem;
-  font: Arial, Helvetica, sans-serif;
-  color: #1c2430;
-  background: #ffffff;
-  border: 1px solid #d5dbe4;
-  border-radius: 6px;
-  transition:
-    border-color 0.15s,
-    box-shadow 0.15s;
 }
-.data {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-}
-.teacher {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-}
-.Profile{
+
+/* Header */
+.Profile {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #e5e5e5;
 }
-a{
+
+.Profile h1 {
+  margin: 0;
+  color: #620000;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.Profile a {
   text-decoration: none;
-  color: #1f5eff;
+  background: #620000;
+  color: white;
+  padding: 12px 22px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.Profile a:hover {
+  background: #850000;
+  transform: translateY(-2px);
+}
+
+/* Form Container */
+.Form {
+  background: white;
+  padding: 28px;
+  border-radius: 14px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+  margin-bottom: 35px;
+}
+
+.name {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 22px;
+}
+
+/* Input Fields */
+.name input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #d8d8d8;
+  border-radius: 8px;
+  background: #fafafa;
+  font-size: 15px;
+  color: #333;
+  outline: none;
+  box-sizing: border-box;
+  transition: 0.3s ease;
+}
+
+.name input::placeholder {
+  color: #888;
+}
+
+.name input:focus {
+  border-color: #620000;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(98, 0, 0, 0.1);
+}
+
+/* Create Teacher Button */
+.Form > button {
+  background: #620000;
+  color: white;
+  border: none;
+  padding: 13px 26px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.Form > button:hover {
+  background: #850000;
+  transform: translateY(-2px);
+}
+
+.Form > button:active {
+  transform: translateY(0);
+}
+
+/* Teacher List */
+.data {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+/* Individual Teacher Card */
+.teacher {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  background: white;
+  padding: 22px;
+  border-radius: 12px;
+  border: 1px solid #eeeeee;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.04);
+  transition: 0.3s ease;
+}
+
+.teacher:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.09);
+  border-color: #e3caca;
+}
+
+/* Teacher ID */
+.id {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: #f5e8e8;
+  color: #620000;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+/* Teacher Information */
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  flex: 1;
+  min-width: 0;
+}
+
+.full-name {
+  color: #292929;
+  font-size: 16px;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.email,
+.phone {
+  color: #777;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+/* Delete Button */
+.teacher button {
+  flex-shrink: 0;
+  background: #fff0f0;
+  color: #b42318;
+  border: 1px solid #f2cccc;
+  padding: 9px 13px;
+  border-radius: 7px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.teacher button:hover {
+  background: #b42318;
+  color: white;
+  border-color: #b42318;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  main {
+    padding: 20px 14px;
+  }
+
+  .Profile {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .Profile h1 {
+    font-size: 25px;
+  }
+
+  .Form {
+    padding: 20px;
+  }
+
+  .name {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .Form > button {
+    width: 100%;
+  }
+
+  .data {
+    grid-template-columns: 1fr;
+  }
+
+  .teacher {
+    padding: 16px;
+    gap: 10px;
+  }
 }
