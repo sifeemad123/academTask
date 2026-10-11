@@ -1,0 +1,21 @@
+@for (profile of profile; track profile.id) {
+<div>
+    <div class="profile-header">
+        <a routerLink="/StudentsComponent">dashboard</a>
+
+    </div>
+    <div class="Name">
+        <label  for="firstName">{{profile.firstName}}: </label>
+        <h4>firstName</h4>
+    </div>
+    <div class="Name">
+        <label  for="lastName">{{profile.lastName}}: </label>
+        <h4>lastName</h4>
+    </div>
+    <div class="Name">
+        <label  for="email">{{profile.email}}: </label>
+        <h4>email</h4>
+    </div>
+    <button class="btn" (click)="deleteAccount(profile.id)">Delete Account</button>
+</div>
+}
