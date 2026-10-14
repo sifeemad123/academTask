@@ -1,9 +1,9 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { SignUpService } from '../../core/Service/sign-up-service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { SignUpService } from '../../core/Service/sign-up';
 
 @Component({
   imports: [RouterLink,FormsModule,CommonModule],

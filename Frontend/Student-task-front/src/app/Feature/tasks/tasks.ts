@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { TasksResponse } from '../../core/Model/Tasks/tasks-response';
 import { TasksRequst } from '../../core/Model/Tasks/tasks-requst';
 import { TaskService } from '../../core/Service/task-service';
@@ -11,14 +11,13 @@ import { RouterLink } from '@angular/router';
   styleUrl: './tasks.css',
   templateUrl: './tasks.html',
 })
-export class Tasks implements OnInit{
+export class Tasks {
     tasks:TasksResponse[]=[];
   private service =inject(TaskService);
   public taskData = {
       id:'',
-      name:'',
-    task:Map<string,TasksRequst>
-    };
+    task:Map<string,TasksRequst>,
+  };
   ngOnInit(): void {
     this.loadTasks();
   }

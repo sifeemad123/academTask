@@ -13,32 +13,27 @@
       <input
         type="text"
         placeholder="name"
-        [(ngModel)]="taskData.name"
+        [(ngModel)]="taskData.task"
       />
 
       <input
         type="text"
-        placeholder="Descreption"
-        [(ngModel)]="$any(taskData.task).TasksRequst.taskDescription"
+        placeholder="Deskreption"
+        [(ngModel)]="taskData.task"
       />
     </div>
 
     <div class="authorization">
       <input
-        type="name"
+        type="email"
         placeholder="Student"
-        [(ngModel)]="$any(taskData.task).TasksRequst.students"
+        [(ngModel)]="taskData.task"
       />
 
       <input
-        type="name"
-        placeholder="Teacher"
-        [(ngModel)]="$any(taskData.task).TasksRequst.teacher"
-      />
-      <input
-        type="name"
-        placeholder="task type"
-        [(ngModel)]="$any(taskData.task).TasksRequst.taskType"
+        type="password"
+        placeholder="Tacher"
+        [(ngModel)]="taskData.task"
       />
     </div>
 
@@ -58,7 +53,7 @@
 
         <div class="info">
           <span class="full-name">
-            {{ Task.name }} 
+            {{ Task.task }}
           </span>
 
           <span class="email">
