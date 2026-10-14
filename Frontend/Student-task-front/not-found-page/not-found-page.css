@@ -1,0 +1,314 @@
+﻿
+:host {
+  display: block;
+  min-height: 100vh;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.not-found-page {
+  min-height: 100vh;
+  padding: 30px 7%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  color: #f8fafc;
+  background:
+    radial-gradient(ellipse at 20% 45%, #17264a 0%, transparent 42%),
+    linear-gradient(135deg, #0b1020, #101a32 65%, #0b1020);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: #f8fafc;
+  text-decoration: none;
+  font-size: 25px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.brand-icon {
+  font-size: 34px;
+}
+
+.brand-blue,
+.highlight {
+  color: #3978ff;
+}
+
+.not-found-content {
+  width: 100%;
+  max-width: 1250px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 65px;
+  padding: 55px 0;
+}
+
+.illustration {
+  min-width: 0;
+  min-height: 350px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.error-number {
+  font-size: clamp(150px, 20vw, 280px);
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: -15px;
+  color: #dce7ff;
+  text-shadow:
+    0 8px 0 #315fd1,
+    0 20px 45px #0008;
+  user-select: none;
+}
+
+.student-card {
+  position: absolute;
+  left: 14%;
+  bottom: 0;
+  width: 175px;
+  height: 145px;
+  border-radius: 24px;
+  background: linear-gradient(145deg, #243657, #111b31);
+  border: 1px solid #344a75;
+  box-shadow: 0 20px 50px #0005;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(-5deg);
+}
+
+.student-icon {
+  font-size: 70px;
+  filter: drop-shadow(0 8px 8px #0005);
+}
+
+.laptop {
+  position: absolute;
+  right: -25px;
+  bottom: 5px;
+  font-size: 48px;
+  transform: rotate(5deg);
+}
+
+.question-mark {
+  position: absolute;
+  top: 2%;
+  right: 20%;
+  font-size: 65px;
+  font-weight: 900;
+  color: #6492ff;
+  transform: rotate(12deg);
+}
+
+.decoration {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  border: 2px solid #3978ff;
+  border-radius: 50%;
+  opacity: 0.6;
+}
+
+.decoration-one {
+  top: 15%;
+  left: 10%;
+}
+
+.decoration-two {
+  bottom: 10%;
+  right: 7%;
+  width: 45px;
+  height: 45px;
+}
+
+.message {
+  max-width: 550px;
+}
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 18px;
+  color: #5488ff;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 4px;
+}
+
+.message h1 {
+  margin: 0 0 25px;
+  font-size: clamp(38px, 4.5vw, 66px);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -2px;
+}
+
+.message > p:not(.small-note) {
+  max-width: 480px;
+  margin: 0 0 30px;
+  color: #a7b5d3;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.home-button {
+  min-height: 58px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  padding: 0 28px;
+  border-radius: 13px;
+  background: linear-gradient(110deg, #2864f0, #397dff);
+  box-shadow: 0 10px 30px #2864f033;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: 700;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.home-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px #2864f055;
+}
+
+.arrow {
+  font-size: 24px;
+  transition: transform 0.25s ease;
+}
+
+.home-button:hover .arrow {
+  transform: translateX(-4px);
+}
+
+.small-note {
+  margin-top: 22px;
+  color: #7788ad;
+  font-size: 13px;
+}
+
+.footer {
+  padding-top: 20px;
+  text-align: center;
+  color: #7180a0;
+  font-size: 12px;
+}
+
+.footer span {
+  padding: 0 6px;
+  color: #3978ff;
+}
+
+@media (max-width: 850px) {
+  .not-found-page {
+    padding: 25px 6%;
+  }
+
+  .not-found-content {
+    grid-template-columns: 1fr;
+    gap: 35px;
+    padding: 45px 0;
+    text-align: center;
+  }
+
+  .illustration {
+    min-height: 260px;
+  }
+
+  .error-number {
+    font-size: clamp(145px, 35vw, 230px);
+  }
+
+  .student-card {
+    left: 15%;
+    width: 125px;
+    height: 105px;
+  }
+
+  .student-icon {
+    font-size: 52px;
+  }
+
+  .laptop {
+    font-size: 35px;
+  }
+
+  .message {
+    margin: auto;
+  }
+
+  .message > p:not(.small-note) {
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand {
+    font-size: 21px;
+  }
+
+  .brand-icon {
+    font-size: 28px;
+  }
+
+  .illustration {
+    min-height: 200px;
+  }
+
+  .error-number {
+    font-size: 145px;
+    letter-spacing: -9px;
+  }
+
+  .student-card {
+    left: 5%;
+    width: 100px;
+    height: 85px;
+  }
+
+  .student-icon {
+    font-size: 42px;
+  }
+
+  .question-mark {
+    font-size: 45px;
+  }
+
+  .message h1 {
+    font-size: 39px;
+    letter-spacing: -1.5px;
+  }
+
+  .eyebrow {
+    font-size: 12px;
+    letter-spacing: 3px;
+  }
+
+  .home-button {
+    min-height: 52px;
+    padding: 0 22px;
+    font-size: 15px;
+  }
+}
