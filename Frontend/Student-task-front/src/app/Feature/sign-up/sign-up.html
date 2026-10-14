@@ -1,0 +1,65 @@
+<form #myForm="ngForm" class="form" (ngSubmit)="createAccount()">
+
+    <div class="input">
+
+        <input
+            [(ngModel)]="signUpData.name"
+            name="name"
+            type="text"
+            placeholder="Username"
+            required
+            minlength="3"
+            #name="ngModel">
+
+        <small *ngIf="name.invalid && name.touched">
+            Username must be at least 3 characters
+        </small>
+
+        <input
+            [(ngModel)]="signUpData.email"
+            name="email"
+            type="email"
+            placeholder="Email"
+            required
+            email
+            #email="ngModel">
+
+        <small *ngIf="email.invalid && email.touched">
+            Enter a valid email
+        </small>
+
+        <input
+            [(ngModel)]="signUpData.password"
+            name="password"
+            type="password"
+            placeholder="Password"
+            required
+            minlength="8"
+            #password="ngModel">
+
+        <small *ngIf="password.invalid && password.touched">
+            Password must be at least 8 characters
+        </small>
+
+        <input
+            [(ngModel)]="confirmPassword"
+            name="confirmPassword"
+            type="password"
+            placeholder="Confirm Password"
+            required
+            #confirm="ngModel">
+
+        <small *ngIf="confirmPassword !== signUpData.password && confirm.touched">
+            Passwords do not match
+        </small>
+
+    </div>
+
+    <button
+        class="btn"
+        type="submit"
+        [disabled]="myForm.invalid || signUpData.password !== confirmPassword">
+        Sign Up
+    </button>
+
+</form>

@@ -3,8 +3,16 @@ import { StudentsComponent } from './Feature/students/Student';
 import { TeacherProfile } from './Feature/teacher-Create/teacher-Create';
 import { Teams } from './Feature/teams/teams';
 import { CreateSession } from './Feature/create-session/create-session';
+import { SignUp } from './Feature/sign-up/sign-up';
+import { Tasks } from './Feature/tasks/tasks';
 export const routes: Routes = [
     {path:"",
+        component:SignUp
+    },
+    {path:"SignUp",
+        component:SignUp
+    },
+    {path:"StudentsComponent",
         component:StudentsComponent
     },
     {
@@ -18,6 +26,10 @@ export const routes: Routes = [
     {
         path:"Teams",
         component:Teams
+    },
+    {
+        path:"Tasks",
+        component:Tasks
     },
 
 ];
