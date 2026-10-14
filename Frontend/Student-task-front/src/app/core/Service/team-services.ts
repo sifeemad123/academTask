@@ -14,16 +14,17 @@ export class TeamService {
   private apiUrl = 'http://localhost:8081/API/V1/Team';
 
 
-  getTeams(): Observable<TeamResponse[]> {
-    return this.http.get<TeamResponse[]>(this.apiUrl);
-  }
 
-  addTeam(team: TeamRequst): Observable<unknown> {
-    return this.http.post(this.apiUrl, team);
-  }
-
-  deleteTeam(id: number): Observable<unknown> {
-    return this.http.delete(`${this.apiUrl}/${id}`);
-  }
+createTeam(team: any) {
+  return this.http.post(this.apiUrl, team);
 }
 
+loadTeams() {
+  return this.http.get<TeamResponse[]>(this.apiUrl);
+}
+
+deleteTeam(id: number) {
+  return this.http.delete(`${this.apiUrl}/${id}`);
+}
+
+}

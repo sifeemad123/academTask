@@ -36,18 +36,20 @@
         <option value="inSession">inSession</option>
       </select>
 <select
-  id="teams"
   name="teams"
   [(ngModel)]="sessionData.teams"
-  multiple
 >
-  @for (team of Teams; track team.id) {
-    <option [ngValue]="team">
-      {{ team.name }}
-    </option>
+  <option [ngValue]="null" disabled>Select a team</option>
+
+  @for (team of Teams; track $index) {
+  <option [value]="team.name">
+    {{ team.name }}
+  </option>
+
   }
-</select>    </div>
-    <button (click)="CreateSession()">create Session</button>
+</select>
+    </div>
+<button (click)="CreateSession()">create Session</button>
   </div>
   <div class="data">
     @for (session of Sessions(); track session.id) {

@@ -1,41 +1,78 @@
+
 <main>
   <div class="Profile">
     <h1>Student Management</h1>
     <a routerLink="/profile">Profile</a>
     <a routerLink="/TeacherCreate">Create Teacher</a>
     <a routerLink="/CreateSession">Create Session</a>
+    <a routerLink="/Teams">Tea</a>
 
+    <a routerLink="/TeacherCreate">Create Teacher</a>
+    <a routerLink="/Teams">Create Team</a>
   </div>
+
   <div class="Form">
     <div class="name">
-      <input type="name" placeholder="First name" [(ngModel)]="studentData.firstName" />
-      <input type="name" placeholder="last name" [(ngModel)]="studentData.lastName" />
-      <select name="isActive"  [(ngModel)]="studentData.grade">
-        <option value="grade10">grade10</option>
-        <option value="grade11">grade11</option>
-        <option value="grade12">grade12</option>
-      </select>
+      <input
+        type="text"
+        placeholder="First name"
+        [(ngModel)]="studentData.firstName"
+      />
 
-    </div>
-    <div class="authrization">
-      <input type="email" placeholder="First email" [(ngModel)]="studentData.email" />
-      <input type="password" placeholder="password" [(ngModel)]="studentData.password" />
+      <input
+        type="text"
+        placeholder="Last name"
+        [(ngModel)]="studentData.lastName"
+      />
     </div>
 
-    <button (click)="CreateStudent()">create student</button>
+    <div class="name">
+      <input
+        type="email"
+        placeholder="Email"
+        [(ngModel)]="studentData.email"
+      />
+
+      <input
+        type="password"
+        placeholder="Password"
+        [(ngModel)]="studentData.password"
+      />
+    </div>
+
+    <button
+      type="button"
+      (click)="CreateStudent()"
+      [disabled]="loading"
+    >
+      {{ loading ? 'Please wait...' : 'Create Student' }}
+    </button>
   </div>
 
-<div class="data">
-  @for (student of Students(); track student.id) {
-    <div class="student">
-      <span class="id">{{ student.id }}</span>
-      <div class="info">
-        <span class="full-name">{{ student.firstName }} {{ student.lastName }} ||   </span>
-        <span class="email">{{ student.email }}</span>
-      </div>
-      <button (click)="deleteStudent(student.id)">delete</button>
-    </div>
-  }
-</div>
-</main>
+  <div class="data">
+    @for (student of Students(); track student.id) {
+      <div class="student">
+        <span class="id">{{ student.id }}</span>
 
+        <div class="info">
+          <span class="full-name">
+            {{ student.firstName }} {{ student.lastName }}
+          </span>
+
+          <span class="email">
+            {{ student.email }}
+          </span>
+        </div>
+
+        <button
+          type="button"
+          (click)="deleteStudent(student.id)"
+        >
+          Delete
+        </button>
+      </div>
+    } @empty {
+      <p>No students found.</p>
+    }
+  </div>
+</main>

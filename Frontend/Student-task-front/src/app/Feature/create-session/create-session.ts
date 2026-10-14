@@ -103,16 +103,16 @@ getTodayDate(): string {
   constructor(private teamService: TeamService) {}
 
   loadTeams(): void {
-    this.teamService.getTeams().subscribe({
-      next: (data) => {
-        this.Teams = data;
-        console.log('Teams loaded:', data);
-      },
-      error: (err) => {
-        console.error('Error loading teams:', err);
-      }
-    });
-  }
+  this.teamService.loadTeams().subscribe({
+    next: (data) => {
+      this.Teams = data;
+      console.log('Teams loaded:', data);
+    },
+    error: (err) => {
+      console.error('Error loading teams:', err);
+    }
+  });
+}
     }
 
 

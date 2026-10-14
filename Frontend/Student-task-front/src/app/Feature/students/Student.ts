@@ -1,13 +1,14 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 
 import { StudentService } from '../../core/Service/student-service';
 import { StudentResponse } from '../../core/Model/StudentInterface/studentsResponse';
-import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-Student',
-  imports: [FormsModule,RouterLink],
+  standalone: true,
+  imports: [FormsModule, RouterLink],
   templateUrl: './Student.html',
   styleUrl: './Student.css',
 })
@@ -17,7 +18,7 @@ export class StudentsComponent implements OnInit {
 
   Students = signal<StudentResponse[]>([]);
 
-  public studentData = {
+  studentData = {
     firstName: '',
     lastName: '',
     email: '',
@@ -31,57 +32,62 @@ export class StudentsComponent implements OnInit {
     this.loadStudents();
   }
 
-  CreateStudent() {
-    this.loading = true;
-
-    console.log(this.studentData);
-
-    this.service.createStudent(this.studentData).subscribe({
-      next: (data) => {
-        alert('User creation complete');
-        console.log(data + "from method ")
-        this.loadStudents();
-      },
-
-      error: (err) => {
-        console.error(err);
-        this.loading = false;
-      },
-
-      complete: () => {
-        this.loading = false;
-      }
-    });
-  }
-
-  loadStudents() {
+  // Load all students
+  loadStudents(): void {
     this.loading = true;
 
     this.service.loadStudents().subscribe({
       next: (data) => {
         this.Students.set(data);
       },
-
       error: (err) => {
-        console.error(err);
+        console.error('Error loading students:', err);
         this.loading = false;
       },
-
       complete: () => {
         this.loading = false;
       },
     });
   }
 
-  deleteStudent(id: number) {
+  // Create a new student
+  CreateStudent(): void {
+    this.loading = true;
+
+    this.service.createStudent(this.studentData).subscribe({
+      next: (data) => {
+        console.log('Student created:', data);
+        alert('User creation complete');
+
+        this.studentData = {
+          firstName: '',
+          lastName: '',
+          email: '',
+          password: '',
+          grade: ''
+        };
+
+        this.loadStudents();
+      },
+      error: (err) => {
+        console.error('Error creating student:', err);
+        this.loading = false;
+      },
+      complete: () => {
+        this.loading = false;
+      },
+    });
+  }
+
+  // Delete a student
+  deleteStudent(id: number): void {
     this.service.deleteStudent(id).subscribe({
       next: () => {
         this.loadStudents();
       },
-
       error: (err) => {
-        console.error(err);
-      }
+        console.error('Error deleting student:', err);
+      },
     });
   }
 }
